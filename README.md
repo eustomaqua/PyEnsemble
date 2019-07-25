@@ -1,1 +1,1 @@
-# PyEnsemble
+**PyEnsemble:** an open source software library for ensemble learning, including several existing diversity measurements and ensemble pruning methods.
