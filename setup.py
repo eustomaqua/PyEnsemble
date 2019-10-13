@@ -103,7 +103,7 @@ setup(
         'Topic :: Software Development :: Build Tools for Ensemble Learning',
 
         # Pick your license as you wish
-        'License :: OSI Approved :: MIT License',
+        # 'License :: OSI Approved :: MIT License',
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
@@ -129,7 +129,7 @@ setup(
     #
     #   py_modules=["my_module"],
     #
-    packages=find_packages(exclude=['contrib', 'docs', 'examples', 'tests']),  # Required
+    packages=find_packages(exclude=['data', 'contrib', 'docs', 'examples', 'tests']),  # Required
 
     # Specify which Python versions you support. In contrast to the
     # 'Programming Language' classifiers above, 'pip install' will check this
