@@ -23,7 +23,9 @@ from pyensemble.utils_const import DTY_INT
 
 
 def contingency_table(hi, hj):
-    assert len(hi) == len(hj)  # number of instances/samples
+    if not len(hi) == len(hj):  # number of instances/samples
+        raise AssertionError("These two individual classifiers "
+                             "have two different shapes.")
     vY = np.unique(np.concatenate([hi, hj])).tolist()
     #
     if len(vY) == 2 and 0 in vY and 1 in vY:
