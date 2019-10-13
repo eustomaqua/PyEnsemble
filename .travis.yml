@@ -3,15 +3,19 @@ python:
   - "2.7"
   - "3.5"
   - "3.6"  # current default Python on Travis CI
-virtualenv: 
-  system_site_packages: true
+
 # command to install dependencies
 install:
   - pip install -r requirements.txt
 # command to run tests
 script: 
-  - pytest
-  - go test -race -coverprofile=coverage.txt -covermode=atomic
+  - pip install -e .[tests] --progress-bar off
+  - pip install codacy-coverage
+  - pytest tests --cov=pyensemble --cov-report xml:coverage.xml
+  - if ! [[ -z $CODACY_PROJECT_TOKEN ]]; then
+      python-codacy-coverage -r coverage.xml;
+    fi
+  - pip install python-coveralls && coveralls
 after_success:
   - coveralls
   - bash <(curl -s https://codecov.io/bash)
