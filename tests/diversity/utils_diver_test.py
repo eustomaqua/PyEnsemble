@@ -65,6 +65,10 @@ def test_multiclass_contingency_table_part2():
                (b == Cij[1][0] and c == Cij[0][1])
     except AssertionError:
         print("Wrong values in shape.")
+    if not ((a==Cij[0][0] and d==Cij[1][1]) or (a==Cij[1][1] and d==Cij[0][0])):
+        raise AssertionError("Wrong values in shape.")
+    if not ((b==Cij[0][1] and c==Cij[1][0]) or (b==Cij[1][0] and c==Cij[0][1])):
+        raise AssertionError("Wrong values in shape.")
 
 
 def test_multiclass_contingency_table_part3():
