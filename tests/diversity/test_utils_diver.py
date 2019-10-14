@@ -5,7 +5,7 @@ import numpy as np
 
 from pyensemble.diversity.utils_diver import contingency_table
 from pyensemble.diversity.utils_diver import multiclass_contingency_table
-from pyensemble.diversity.utils_diver import number_individuals_correct
+from pyensemble.diversity.utils_diver import number_individuals_correctly
 
 
 
@@ -86,10 +86,16 @@ class TestCase(unittest.TestCase):
             yt = (np.random.randint(2, size=(T, m)) * 2 - 1).tolist()
             y = (np.random.randint(2, size=m) * 2 - 1).tolist()
         #   #
-        rho_x = number_individuals_correct(yt, y)
+        rho_x = number_individuals_correctly(yt, y)
         ans = [[yt[i][j] ^ y[j] for j in range(m)] for i in range(T)]
         ans = np.sum(np.array(ans) == 0, axis=0)
         self.assertEqual(all(ans == np.array(rho_x)), True, "Wrong values in $rho_x$")
+
+    def test_number_individuals_correct(self):
+        self.case_number_individuals_correct(m=41, L=2, T=21)
+        self.case_number_individuals_correct(m=41, L=-1, T=21)
+        self.case_number_individuals_correct(m=41, L=4, T=21)
+        self.case_number_individuals_correct(m=41, L=7, T=21)
 
 
 

@@ -14,9 +14,9 @@ from pyensemble.utils_const import DTY_INT
 # from pyensemble.utils_const import check_zero
 
 
-# -------------------------------------------
-#   General
-# -------------------------------------------
+#-------------------------------------------
+# General
+#-------------------------------------------
 
 
 # pairwise measures
@@ -24,7 +24,7 @@ from pyensemble.utils_const import DTY_INT
 
 def contingency_table(hi, hj):
     if not len(hi) == len(hj):  # number of instances/samples
-        raise AssertionError( 
+        raise AssertionError( \
             "These two individual classifiers have two different shapes.")
     vY = np.unique(np.concatenate([hi, hj])).tolist()
     #
@@ -60,7 +60,7 @@ def multiclass_contingency_table(ha, hb, y):
 
 # non-pairwise measures
 
-def number_individuals_correct(yt, y):
+def number_individuals_correctly(yt, y):
     y = np.array(y, dtype=DTY_INT)
     yt = np.array(yt, dtype=DTY_INT)
     rho_x = np.sum(yt == y, axis=0)

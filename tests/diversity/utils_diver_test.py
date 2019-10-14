@@ -8,7 +8,7 @@ import numpy as np
 
 from pyensemble.diversity.utils_diver import contingency_table
 from pyensemble.diversity.utils_diver import multiclass_contingency_table
-from pyensemble.diversity.utils_diver import number_individuals_correct
+from pyensemble.diversity.utils_diver import number_individuals_correctly
 
 
 
@@ -102,7 +102,7 @@ def case_number_individuals_correct(m, L, T):
         yt = (np.random.randint(2, size=(T, m)) *2-1).tolist()
         y = (np.random.randint(2, size=m) *2-1).tolist()
     #   #
-    rho_x = number_individuals_correct(yt, y)
+    rho_x = number_individuals_correctly(yt, y)
     ans = [[yt[i][j] ^ y[j] for j in range(m)] for i in range(T)]
     ans = np.sum(np.array(ans) == 0, axis=0)
     if not all(ans == np.array(rho_x)):
