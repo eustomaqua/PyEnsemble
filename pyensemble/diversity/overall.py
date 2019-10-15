@@ -5,9 +5,7 @@ from __future__ import division
 from __future__ import print_function
 
 import numpy as np
-# from pyensemble.utils_const import DTY_FLT
 from pyensemble.utils_const import DTY_INT
-# from pyensemble.utils_const import check_zero
 
 
 from pyensemble.diversity.pairwise import Disagreement_Measure_multiclass

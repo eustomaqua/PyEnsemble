@@ -5,13 +5,9 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-# from copy import deepcopy
-# import time
 import numpy as np
 
-# from pyensemble.utils_const import DTY_FLT
 from pyensemble.utils_const import DTY_INT
-# from pyensemble.utils_const import check_zero
 
 
 #-------------------------------------------

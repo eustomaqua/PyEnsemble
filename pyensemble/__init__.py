@@ -6,11 +6,11 @@ from __future__ import division
 from __future__ import print_function
 
 
-from copy import deepcopy
+# from copy import deepcopy
 import gc
-import time
+# import time
 
-import numpy as np
+# import numpy as np
 # import multiprocessing as mp
 # from pathos import multiprocessing as pp
 # from pympler.asizeof import asizeof

@@ -5,8 +5,6 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-# from copy import deepcopy
-# import time
 import numpy as np
 
 from pyensemble.utils_const import DTY_FLT
@@ -38,7 +36,7 @@ def Disagreement_Measure_multiclass(hi, hj, m):
 
 
 def Disagreement_Measure_binary(hi, hj, m):
-    a, b, c, d = contingency_table(hi, hj)
+    _, b, c, _ = contingency_table(hi, hj)
     return (b + c) / float(m)
 
 

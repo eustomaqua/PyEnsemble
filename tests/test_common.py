@@ -1,4 +1,9 @@
+# coding: utf8
+
+from __future__ import absolute_import
 from __future__ import division
+from __future__ import print_function
+
 import unittest
 import numpy as np
 from tests.common import generate_simulated_data

@@ -1,8 +1,11 @@
-from __future__ import division
-import unittest
-import numpy as np
+# coding: utf8
 
-from tests.common import generate_simulated_data
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+import unittest
+
 from tests.common import negative_generate_simulate
 from pyensemble.diversity import PAIRWISE, NONPAIRWISE, AVAILABLE_NAME_DIVER
 
