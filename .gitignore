@@ -1,0 +1,7 @@
+# ignore files
+.DS_Store
+
+# ignore folders
+.idea/
+.vscode/
+.pytest_cache/

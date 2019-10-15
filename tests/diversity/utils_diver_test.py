@@ -11,7 +11,6 @@ from pyensemble.diversity.utils_diver import multiclass_contingency_table
 from pyensemble.diversity.utils_diver import number_individuals_correctly
 
 
-
 def case_contingency_table(m, L):
     # m:  number of instances / samples
     # L:  number of labels / classes
@@ -36,13 +35,12 @@ def test_contingency_table():
     case_contingency_table(m=21, L=-1)
 
 
-
 def test_multiclass_contingency_table_part1():
     m = 31  # number of instances / samples
-    L = 4   #  number of labels / classes
+    L = 4  # number of labels / classes
     hi = np.random.randint(L, size=m).tolist()
     hj = np.random.randint(L, size=m).tolist()
-    y  = np.random.randint(L, size=m).tolist()
+    y = np.random.randint(L, size=m).tolist()
     #
     C = multiclass_contingency_table(hi, hj, y)
     if not (np.sum(C) == m):
@@ -51,36 +49,32 @@ def test_multiclass_contingency_table_part1():
 
 def test_multiclass_contingency_table_part2():
     m = 31  # number of instances / samples
-    L = 2   # number of labels / classes
+    L = 2  # number of labels / classes
     hi = np.random.randint(L, size=m).tolist()
     hj = np.random.randint(L, size=m).tolist()
-    y  = np.random.randint(L, size=m).tolist()
+    y = np.random.randint(L, size=m).tolist()
     #
     Cij = multiclass_contingency_table(hi, hj, y)
     a, b, c, d = contingency_table(hi, hj)
-    if not (((a==Cij[0][0]) and (d==Cij[1][1])) or ((a==Cij[1][1]) and (d==Cij[0][0]))):
+    if not (((a == Cij[0][0]) and (d == Cij[1][1])) or ((a == Cij[1][1]) and (d == Cij[0][0]))):
         raise AssertionError("Wrong values in shape.")
-    if not (((b==Cij[0][1]) and (c==Cij[1][0])) or ((b==Cij[1][0]) and (c==Cij[0][1]))):
+    if not (((b == Cij[0][1]) and (c == Cij[1][0])) or ((b == Cij[1][0]) and (c == Cij[0][1]))):
         raise AssertionError("Wrong values in shape.")
 
 
 def test_multiclass_contingency_table_part3():
     m = 31  # number of instances / samples
-    L = 2   # number of labels / classes
-    hi = (np.random.randint(L, size=m) *2-1).tolist()
-    hj = (np.random.randint(L, size=m) *2-1).tolist()
-    y  = (np.random.randint(L, size=m) *2-1).tolist()
+    L = 2  # number of labels / classes
+    hi = (np.random.randint(L, size=m) * 2 - 1).tolist()
+    hj = (np.random.randint(L, size=m) * 2 - 1).tolist()
+    y = (np.random.randint(L, size=m) * 2 - 1).tolist()
     #
     Cij = multiclass_contingency_table(hi, hj, y)
     a, b, c, d = contingency_table(hi, hj)
-    try:
-        assert ((a == Cij[0][0]) and (d == Cij[1][1])) or \
-               ((a == Cij[1][1]) and (d == Cij[0][0]))
-        assert ((b == Cij[0][1]) and (c == Cij[1][0])) or \
-               ((b == Cij[1][0]) and (c == Cij[0][1]))
-    except AssertionError:
-        print("Wrong values in shape.")
-
+    if not (((a == Cij[0][0]) and (d == Cij[1][1])) or ((a == Cij[1][1]) and (d == Cij[0][0]))):
+        raise AssertionError("Wrong values in shape.")
+    if not (((b == Cij[0][1]) and (c == Cij[1][0])) or ((b == Cij[1][0]) and (c == Cij[0][1]))):
+        raise AssertionError("Wrong values in shape.")
 
 
 def case_number_individuals_correct(m, L, T):
@@ -92,8 +86,8 @@ def case_number_individuals_correct(m, L, T):
         yt = np.random.randint(L, size=(T, m)).tolist()
         y = np.random.randint(L, size=m).tolist()
     else:
-        yt = (np.random.randint(2, size=(T, m)) *2-1).tolist()
-        y = (np.random.randint(2, size=m) *2-1).tolist()
+        yt = (np.random.randint(2, size=(T, m)) * 2 - 1).tolist()
+        y = (np.random.randint(2, size=m) * 2 - 1).tolist()
     #   #
     rho_x = number_individuals_correctly(yt, y)
     ans = [[yt[i][j] ^ y[j] for j in range(m)] for i in range(T)]

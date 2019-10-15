@@ -42,7 +42,7 @@ class TestPairwise(unittest.TestCase):
         self.assertEqual(d1, d3)
         self.assertEqual(d2, d4)
         m = 100
-        y3, yt3 = generate_simulated_data(m, 7, 2)
+        _, yt3 = generate_simulated_data(m, 7, 2)
         d3 = Disagreement_Measure_multiclass(yt3[0], yt3[1], m)
         self.assertEqual(0 <= d3 <= 1, True)
 
