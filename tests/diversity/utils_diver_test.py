@@ -27,7 +27,7 @@ def case_contingency_table(m, L):
     #
     # print("hi", hi)
     # print("hj", hj)
-    if not a + b + c + d == m:
+    if not (a + b + c + d == m):
         raise AssertionError("Wrong shape! a + b + c + d != m")
 
 
@@ -45,7 +45,7 @@ def test_multiclass_contingency_table_part1():
     y  = np.random.randint(L, size=m).tolist()
     #
     C = multiclass_contingency_table(hi, hj, y)
-    if not np.sum(C) == m:
+    if not (np.sum(C) == m):
         raise AssertionError("Wrong shape! sum(Cij) != m")
 
 
@@ -58,16 +58,9 @@ def test_multiclass_contingency_table_part2():
     #
     Cij = multiclass_contingency_table(hi, hj, y)
     a, b, c, d = contingency_table(hi, hj)
-    try:
-        assert (a == Cij[0][0] and d == Cij[1][1]) or \
-               (a == Cij[1][1] and d == Cij[0][0])
-        assert (b == Cij[0][1] and c == Cij[1][0]) or \
-               (b == Cij[1][0] and c == Cij[0][1])
-    except AssertionError:
-        print("Wrong values in shape.")
-    if not ((a==Cij[0][0] and d==Cij[1][1]) or (a==Cij[1][1] and d==Cij[0][0])):
+    if not (((a==Cij[0][0]) and (d==Cij[1][1])) or ((a==Cij[1][1]) and (d==Cij[0][0]))):
         raise AssertionError("Wrong values in shape.")
-    if not ((b==Cij[0][1] and c==Cij[1][0]) or (b==Cij[1][0] and c==Cij[0][1])):
+    if not (((b==Cij[0][1]) and (c==Cij[1][0])) or ((b==Cij[1][0]) and (c==Cij[0][1]))):
         raise AssertionError("Wrong values in shape.")
 
 
@@ -81,10 +74,10 @@ def test_multiclass_contingency_table_part3():
     Cij = multiclass_contingency_table(hi, hj, y)
     a, b, c, d = contingency_table(hi, hj)
     try:
-        assert (a == Cij[0][0] and d == Cij[1][1]) or \
-               (a == Cij[1][1] and d == Cij[0][0])
-        assert (b == Cij[0][1] and c == Cij[1][0]) or \
-               (b == Cij[1][0] and c == Cij[0][1])
+        assert ((a == Cij[0][0]) and (d == Cij[1][1])) or \
+               ((a == Cij[1][1]) and (d == Cij[0][0]))
+        assert ((b == Cij[0][1]) and (c == Cij[1][0])) or \
+               ((b == Cij[1][0]) and (c == Cij[0][1]))
     except AssertionError:
         print("Wrong values in shape.")
 

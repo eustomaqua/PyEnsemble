@@ -1,4 +1,5 @@
 # coding: utf8
+from __future__ import division
 
 import unittest
 import numpy as np
@@ -9,7 +10,7 @@ from pyensemble.diversity.utils_diver import number_individuals_correctly
 
 
 
-class TestCase(unittest.TestCase):
+class TestUtilsDiver(unittest.TestCase):
     """
     :param m:  number of instances / samples
     :param L:  number of labels / classes
@@ -53,10 +54,10 @@ class TestCase(unittest.TestCase):
         Cij = multiclass_contingency_table(hi, hj, y)
         a, b, c, d = contingency_table(hi, hj)
         #
-        judge_ad = (a == Cij[0][0] and d == Cij[1][1]) or \
-                   (a == Cij[1][1] and d == Cij[0][0])
-        judge_bc = (b == Cij[0][1] and c == Cij[1][0]) or \
-                   (b == Cij[1][0] and c == Cij[0][1])
+        judge_ad = ((a == Cij[0][0]) and (d == Cij[1][1])) or \
+                   ((a == Cij[1][1]) and (d == Cij[0][0]))
+        judge_bc = ((b == Cij[0][1]) and (c == Cij[1][0])) or \
+                   ((b == Cij[1][0]) and (c == Cij[0][1]))
         self.assertEqual(judge_ad, True, "Wrong values in shape.")
         self.assertEqual(judge_bc, True, "Wrong values in shape.")
 
@@ -70,10 +71,10 @@ class TestCase(unittest.TestCase):
         Cij = multiclass_contingency_table(hi, hj, y)
         a, b, c, d = contingency_table(hi, hj)
         #
-        judge_ad = (a == Cij[0][0] and d == Cij[1][1]) or \
-                   (a == Cij[1][1] and d == Cij[0][0])
-        judge_bc = (b == Cij[0][1] and c == Cij[1][0]) or \
-                   (b == Cij[1][0] and c == Cij[0][1])
+        judge_ad = ((a == Cij[0][0]) and (d == Cij[1][1])) or \
+                   ((a == Cij[1][1]) and (d == Cij[0][0]))
+        judge_bc = ((b == Cij[0][1]) and (c == Cij[1][0])) or \
+                   ((b == Cij[1][0]) and (c == Cij[0][1]))
         self.assertEqual(judge_ad, True, "Wrong values in shape.")
         self.assertEqual(judge_bc, True, "Wrong values in shape.")
 
@@ -83,8 +84,8 @@ class TestCase(unittest.TestCase):
             yt = np.random.randint(L, size=(T, m)).tolist()
             y = np.random.randint(L, size=m).tolist()
         else:
-            yt = (np.random.randint(2, size=(T, m)) * 2 - 1).tolist()
-            y = (np.random.randint(2, size=m) * 2 - 1).tolist()
+            yt = (np.random.randint(2, size=(T, m)) *2-1).tolist()
+            y = (np.random.randint(2, size=m) *2-1).tolist()
         #   #
         rho_x = number_individuals_correctly(yt, y)
         ans = [[yt[i][j] ^ y[j] for j in range(m)] for i in range(T)]

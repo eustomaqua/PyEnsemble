@@ -21,5 +21,5 @@ RANDOM_SEED = None
 
 
 def check_zero(tem):
-    return tem if tem != 0.0 else CONST_ZERO
+    return tem if (tem != 0.0) else CONST_ZERO
 
