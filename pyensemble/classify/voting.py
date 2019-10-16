@@ -32,6 +32,17 @@ from sklearn import linear_model    # SGDClassifier(loss='hinge', penalty='l1' o
 def individual(name_cls, wX, wy):
     return name_cls.fit(wX, wy)
 
+NAME_INDIVIDUALS = {
+    'DT'  : tree.DecisionTreeClassifier(),
+    'NB'  : naive_bayes.GaussianNB(),
+    'SVM' : svm.SVC(),
+    'LSVM': svm.LinearSVC(),
+    'KNNu': neighbors.KNeighborsClassifier(weights='uniform'),
+    'KNNd': neighbors.KNeighborsClassifier(weights='distance'),
+    'LM1' : linear_model.SGDClassifier(penalty='l1'),
+    'LM2' : linear_model.SGDClassifier(penalty='l2'),
+}
+
 
 
 #----------------------------------------

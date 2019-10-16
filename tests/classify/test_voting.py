@@ -6,10 +6,18 @@ from __future__ import print_function
 
 import unittest
 import numpy as np
+from sklearn import tree            # DecisionTreeClassifier()
+from sklearn import naive_bayes     # GaussianNB, MultinomialNB, BernoulliNB
+from sklearn import svm             # SVC, NuSVC, LinearSVC
+from sklearn import neighbors       # KNeighborsClassifier(n_neighbors, weights='uniform' or 'distance')
+from sklearn import linear_model    # SGDClassifier(loss='hinge', penalty='l1' or 'l2')
+
 
 from pyensemble.classify.voting import plurality_voting
 from pyensemble.classify.voting import majority_voting
 from pyensemble.classify.voting import weighted_voting
+from pyensemble.classify.voting import individual, NAME_INDIVIDUALS
+from pyensemble.classify import AVAILABLE_ABBR_CLS
 
 
 class TestVoting(unittest.TestCase):
@@ -48,6 +56,16 @@ class TestVoting(unittest.TestCase):
         est = [1, 1, 3, 2, 1, 2, 3]
         fens = np.array(weighted_voting(y, yt, weig))
         self.assertEqual(all(fens == np.array(est)), True)
+
+
+    def test_individual(self):
+        wX = np.random.rand(100, 4).tolist()  #       # list
+        wy = np.random.randint(2, size=100).tolist()  # list
+        for abbr_cls in AVAILABLE_ABBR_CLS:
+            name_cls = NAME_INDIVIDUALS[abbr_cls]
+            ht = individual(name_cls, wX, wy)  #      # np.ndarray
+            self.assertEqual(all(np.unique(ht) == np.unique(wy)), True)
+
 
 
 

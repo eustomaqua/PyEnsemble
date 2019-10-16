@@ -14,3 +14,5 @@ from __future__ import print_function
 # coefficient:              list, [nb_cls]
 # weights (in resample):    list, [nb_y/X]
 #
+
+AVAILABLE_ABBR_CLS = ['DT', 'NB', 'SVM', 'LSVM', 'KNNu', 'KNNd', 'LM1', 'LM2']
