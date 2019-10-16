@@ -1,5 +1,6 @@
 # ignore files
 .DS_Store
+*/.DS_Store
 
 # ignore folders
 .idea/
@@ -8,3 +9,4 @@
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*/__pycache__/
