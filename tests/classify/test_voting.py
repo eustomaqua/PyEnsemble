@@ -64,7 +64,11 @@ class TestVoting(unittest.TestCase):
         for abbr_cls in AVAILABLE_ABBR_CLS:
             name_cls = NAME_INDIVIDUALS[abbr_cls]
             ht = individual(name_cls, wX, wy)  #      # np.ndarray
-            self.assertEqual(all(np.unique(ht) == np.unique(wy)), True)
+            judge1 = all(np.unique(ht) == np.unique(wy))
+            judge2 = len(np.unique(ht)) == len(np.unique(wy))
+            judge3 = len(np.unique(ht)) < len(np.unique(wy))
+            self.assertEqual(judge1 or judge3, True)
+            self.assertEqual(judge2 or judge3, True)
 
 
 
