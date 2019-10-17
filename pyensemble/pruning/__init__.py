@@ -7,6 +7,23 @@ from __future__ import print_function
 # from typing import List
 
 
+# Ensemble Pruning
+#-------------------------------------
+#
+# X_trn, y_trn, X_tst, y_tst
+# nb_trn, nb_tst, nb_feat
+# pr_feat, pr_pru
+# k1,m1,lam1, k2,m2,lam2
+#
+# k?:   the number of selected objects (classifiers / features)
+# m?:   the number of machiens doing ensemble pruning / feature selection
+# \lambda:  tradeoff
+#
+# yt:   predicted results, list, [[nb_y] nb_cls]
+# yo:   pruned results,    list, [[nb_y] nb_pru]
+#
+
+
 RANKING_BASED = [
     'ES',    # Early Stopping
     'KL',    # KL divergence Pruning

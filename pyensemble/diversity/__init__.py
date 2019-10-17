@@ -5,6 +5,17 @@ from __future__ import division
 from __future__ import print_function
 
 
+# Diversity Measures
+#-------------------------------------
+#
+# hi, hj:   list, not np.ndarray, with shape [m,]
+# y \in {0, 1} -> {-1, +1}
+# yt:       list, [[m,] nb_cls]
+#
+# m = nb_y
+#
+
+
 PAIRWISE = [
     'Disagreement',  # Disagreement Measure [Skalak, 1996, Ho, 1998]
     'Q_statistic',   # Q-Statistic [Yule, 1900]

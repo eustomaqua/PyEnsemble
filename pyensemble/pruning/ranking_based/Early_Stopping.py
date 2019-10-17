@@ -42,3 +42,16 @@ def Early_Stopping(yt, nb_cls, nb_pru):
 # KL distance between two probability distributions p and q:
 # KL_distance = scipy.stats.entropy(p, q)
 
+
+#----------------------------------
+# Kappa Pruning [binary classification]
+# ! not multi-class
+# now works on multi-class
+#----------------------------------
+
+
+# def Kappa(nb_y, nb_c, ha, hb):
+#     dY = nb_c  # dY = nb_lab  # nb_label
+#     m = nb_y   # number of instances / samples
+
+
