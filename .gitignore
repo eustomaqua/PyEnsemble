@@ -10,3 +10,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 */__pycache__/
+
+# Codacy, Coverage
+coverage.xml
+htmlcov/
