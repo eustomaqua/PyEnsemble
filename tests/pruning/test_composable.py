@@ -17,7 +17,7 @@ from pyensemble.diversity.pairwise import Kappa_Statistic_multiclass
 class TestComposable(unittest.TestCase):
 
     def test_GMM_Algorithm(self):
-        m, nb_cls = 100, 17
+        m, nb_cls = 30, 7
         y, yt = generate_simulated_data(m, 2, nb_cls)
         tem = GMM.GMM_Kappa_sum(yt[0], yt[1:], y)
         ans = [Kappa_Statistic_multiclass(yt[0], j, y, m)[0] for j in yt[1:]]
@@ -39,7 +39,7 @@ class TestComposable(unittest.TestCase):
         self.assertEqual(sum(P) == nb_pru, True)
 
     def test_LCS_Algorithm(self):
-        m, nb_cls = 100, 17
+        m, nb_cls = 30, 7
         y, yt = generate_simulated_data(m, 2, nb_cls)
         tem = LCS.LocalSearch_kappa_sum(yt, y)
         ans = 0.0

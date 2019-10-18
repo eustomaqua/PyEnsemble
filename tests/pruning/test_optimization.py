@@ -21,13 +21,14 @@ class TestOptimization(unittest.TestCase):
 
 
     def test_DREP(self):
-        m, nb_cls = 100, 17
-        h, ht, y, yt = negative_generate_simulate(m, 2, nb_cls)
+        m, nb_cls = 30, 7
+        h, ht, y, yt = negative_generate_simulate(m, nb_cls)
         fens = DREP.DREP_fxH(yt)
         self.assertEqual(all(np.unique(fens) == np.array([-1, 1])), True)
         tem_h = DREP.DREP_diff(ht[0], ht[1])
         tem_y = DREP.DREP_diff(yt[0], yt[1])
         self.assertEqual(tem_h == tem_y, True)
+        #
         yo, P = DREP.DREP_Pruning(yt, y, nb_cls, 0.4)
         self.assertEqual(len(yo) == sum(P), True)
         self.assertEqual(sum(P) <= nb_cls, True)
@@ -37,7 +38,7 @@ class TestOptimization(unittest.TestCase):
 
 
     def test_SEP(self):
-        m, nb_label, nb_cls = 100, 4, 17
+        m, nb_label, nb_cls = 30, 4, 7
         y, yt = generate_simulated_data(m, nb_label, nb_cls)
         nb_pru = 7
         yo, P = SEP.PEP_SEP(yt, y, nb_cls, nb_pru)
@@ -46,7 +47,7 @@ class TestOptimization(unittest.TestCase):
 
 
     def test_OEP(self):
-        m, nb_label, nb_cls = 100, 4, 17
+        m, nb_label, nb_cls = 30, 4, 7
         y, yt = generate_simulated_data(m, nb_label, nb_cls)
         yo, P = OEP.PEP_OEP(yt, y, nb_cls)
         self.assertEqual(sum(P) <= nb_cls, True)
@@ -54,7 +55,7 @@ class TestOptimization(unittest.TestCase):
 
 
     def test_PEP(self):
-        m, nb_label, nb_cls = 100, 4, 17
+        m, nb_label, nb_cls = 30, 4, 7
         y, yt = generate_simulated_data(m, nb_label, nb_cls)
         s = np.random.randint(2, size=nb_cls).tolist()
         Q, L = PEP.PEP_VDS(y, yt, nb_cls, s)
@@ -66,7 +67,7 @@ class TestOptimization(unittest.TestCase):
 
 
     def test_PEP_modify(self):
-        m, nb_label, nb_cls = 100, 4, 17
+        m, nb_label, nb_cls = 30, 4, 7
         y, yt = generate_simulated_data(m, nb_label, nb_cls)
         yo, P = PEPplus.PEP_PEP_modify(yt, y, nb_cls, 0.4)
         self.assertEqual(sum(P) <= nb_cls, True)
