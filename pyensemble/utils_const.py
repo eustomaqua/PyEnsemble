@@ -23,3 +23,6 @@ RANDOM_SEED = None
 def check_zero(tem):
     return tem if (tem != 0.0) else CONST_ZERO
 
+def check_equal(tem_A, tem_B):
+    return True if (abs(tem_A - tem_B) <= 1e-6) else False
+
