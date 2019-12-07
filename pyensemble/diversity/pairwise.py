@@ -49,7 +49,7 @@ def Disagreement_Measure_binary(hi, hj, m):
 def Q_Statistic_binary(hi, hj):
     a, b, c, d = contingency_table(hi, hj)
     tem = a * d + b * c
-    return (a * d + b * c) / check_zero(tem)
+    return (a * d - b * c) / check_zero(tem)
 
 
 
