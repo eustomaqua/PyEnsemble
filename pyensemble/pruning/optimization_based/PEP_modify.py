@@ -84,7 +84,7 @@ def PEP_PEP_modify(yt, y, nb_cls, rho):
         nb_count = nb_count - 1
         # end of this iteration
         #
-        obj_eval = [ PEP_f_Hs(y, yt, s)[0]  for s in P]
+        obj_eval = [ PEP_f_Hs(y, yt, sj)[0]  for sj in P]
         idx_eval = obj_eval.index( np.min(obj_eval) )
         s_ef = P[idx_eval]  # se/sf, s_eventually, s_finally
         del obj_eval, idx_eval

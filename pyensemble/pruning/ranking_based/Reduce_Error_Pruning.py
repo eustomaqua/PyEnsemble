@@ -43,7 +43,8 @@ def Reduce_Error_Pruning(yt, y, nb_cls, nb_pru):
     # next
     while np.sum(P) < nb_pru:
         # find the next idx
-        not_in_p = np.where(P == False)[0]
+        # not_in_p = np.where(P == False)[0]
+        not_in_p = np.where(np.logical_not(P))[0]
         anserr = []
         for i in not_in_p:
             temP = deepcopy(P)

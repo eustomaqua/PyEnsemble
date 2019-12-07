@@ -21,14 +21,16 @@ class TestRanking(unittest.TestCase):
     def test_ES_pruning(self):
         m, L, T, H = 30, 4, 7, 3
         _, yt = generate_simulated_data(m, L, T)
-        yo, P = ES.Early_Stopping(yt, T, H)
+        # yo, P = ES.Early_Stopping(yt, T, H)
+        _, P = ES.Early_Stopping(yt, T, H)
         self.assertEqual(sum(P), H)
+        del L
 
 
     def test_KL_divergence_pruning(self):
         m, L, nb_cls, nb_pru = 30, 4, 7, 3
         y, yt = generate_simulated_data(m, L, nb_cls)
-        yo, P = KL.KL_divergence_Pruning(yt, nb_cls, nb_pru)
+        _, P = KL.KL_divergence_Pruning(yt, nb_cls, nb_pru)
         self.assertEqual(sum(P), nb_pru)
 
 
@@ -37,12 +39,13 @@ class TestRanking(unittest.TestCase):
         y, yt = generate_simulated_data(m, L, nb_cls)
         yo, P = KLplus.KL_divergence_Pruning_modify(yt, nb_cls, nb_pru)
         self.assertEqual(sum(P), nb_pru)
+        del y, yo
 
 
     def test_Kappa_pruning(self):
         m, L, nb_cls, nb_pru = 30, 4, 7, 3
         y, yt = generate_simulated_data(m, L, nb_cls)
-        yo, P = KP.Kappa_Pruning(yt, y, nb_cls, nb_pru)
+        _, P = KP.Kappa_Pruning(yt, y, nb_cls, nb_pru)
         self.assertEqual(sum(P), nb_pru)
 
 
@@ -52,12 +55,13 @@ class TestRanking(unittest.TestCase):
         yo, P, flag = OO.Orientation_Ordering_Pruning(yt, y)
         self.assertEqual(sum(P) <= nb_cls, True)
         self.assertEqual(0. <= flag <= 180., True)
+        del nb_pru, yo
 
 
     def test_RE_pruning(self):
         m, L, nb_cls, nb_pru = 30, 4, 7, 3
         y, yt = generate_simulated_data(m, L, nb_cls)
-        yo, P = RE.Reduce_Error_Pruning(yt, y, nb_cls, nb_pru)
+        _, P = RE.Reduce_Error_Pruning(yt, y, nb_cls, nb_pru)
         self.assertEqual(sum(P), nb_pru)
 
 

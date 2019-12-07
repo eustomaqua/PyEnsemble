@@ -35,6 +35,8 @@ class TestOptimization(unittest.TestCase):
         h, ht = generate_simulated_data(m, 4, 2)
         tem_h = DREP.DREP_diff(ht[0], ht[1])
         self.assertEqual(-1. <= tem_h <= 1., True)
+        #
+        del h
 
 
     def test_SEP(self):

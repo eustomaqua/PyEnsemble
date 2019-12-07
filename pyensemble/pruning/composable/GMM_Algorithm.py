@@ -47,7 +47,8 @@ def GMM_Algorithm(yt, y, nb_cls, nb_pru):
     for i in range(1, nb_pru):
         # find_max_p
         all_q_in_S = np.array(yt)[P].tolist()
-        idx_p_not_S = np.where(P == False)[0]
+        # idx_p_not_S = np.where(P == False)[0]
+        idx_p_not_S = np.where(np.logical_not(P))[0]
         if len(idx_p_not_S) == 0:
             idx = -1
         else:

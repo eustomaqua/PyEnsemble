@@ -95,7 +95,8 @@ def DREP_Pruning(yt, y, nb_cls, rho):
     while nb_count > 0:  # >=
         hstar = np.array(tr_yt)[P].tolist()
         hstar = DREP_fxH(hstar)
-        all_q_in_S = np.where(P == False)[0]
+        # all_q_in_S = np.where(P == False)[0]
+        all_q_in_S = np.where(np.logical_not(P))[0]
         dhstar = [ DREP_diff(tr_yt[q], hstar)  for q in all_q_in_S]
         dhidx = np.argsort(dhstar).tolist()  # sort in the ascending order
         tradeoff = int(np.ceil(rho * len(all_q_in_S)))
@@ -103,7 +104,8 @@ def DREP_Pruning(yt, y, nb_cls, rho):
         gamma = [ all_q_in_S[q]  for q in gamma]
         #
         errHstar = np.mean(np.array(hstar) != np.array(tr_y))
-        idx = np.where(P == True)[0].tolist()
+        # idx = np.where(P == True)[0].tolist()
+        idx = np.where(P)[0].tolist()
         errNew = [ np.mean(
             np.array(
                 DREP_fxH(np.array(tr_yt)[idx+[p]].tolist())
@@ -118,7 +120,8 @@ def DREP_Pruning(yt, y, nb_cls, rho):
         #
         del hstar,all_q_in_S,dhstar,dhidx,tradeoff, errHstar,errNew,errIdx
         nb_count -= 1
-        if flag == False:
+        # if flag == False:
+        if not flag:
             break
     #   #   #
     yo = np.array(yt)[P].tolist()

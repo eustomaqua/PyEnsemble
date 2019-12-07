@@ -110,7 +110,8 @@ def Kappa_Pruning(yt, y, nb_cls, nb_pru):
             nb_p += 2
         del idx, row, col
     #   #
-    yo = np.array(yt)[P == True].tolist()
+    # yo = np.array(yt)[P == True].tolist()
+    yo = np.array(yt)[P].tolist()
     P = P.tolist()
     del nb_p, Kij
     gc.collect()

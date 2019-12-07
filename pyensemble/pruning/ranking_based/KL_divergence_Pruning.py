@@ -95,13 +95,15 @@ def JU_set_of_vectors(U):
 
 def U_next_idx(yt, P):
     P = np.array(P)
-    not_in_p = np.where(P == False)[0]
+    # not_in_p = np.where(P == False)[0]
+    not_in_p = np.where(np.logical_not(P))[0]
     #
     yt = np.array(yt);  ansJ = []
     for i in not_in_p:
         ansP = deepcopy(P)
         ansP[i] = True
-        ansU = yt[ansP == True].tolist()
+        # ansU = yt[ansP == True].tolist()
+        ansU = yt[ansP].tolist()
         ansJ.append(JU_set_of_vectors(ansU))
         del ansP, ansU
     idx = ansJ.index(np.max(ansJ))

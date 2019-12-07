@@ -14,7 +14,7 @@ pruned subensemble    $\mathbf{P}$, with cardinality $p$, a set of individual cl
 
 name_ensem  = Bagging, AdaBoost
 abbr_cls    = DT, NB, SVM, LSVM
-name_cls    = 
+name_cls    =
 nb_cls      =
 k           = the number of selected objects (classifiers / features)
 m           = the number of machines doing ensemble pruning / feature selection
@@ -25,7 +25,7 @@ yt          = predicted result,  [[nb_y] nb_cls] list, `nb_cls x nb_y' array
 yo          = pruned result, not `yp'
 
 X_trn, y_trn, X_tst, y_tst
-nb_trn, nb_tst, nb_feat, 
+nb_trn, nb_tst, nb_feat,
 pr_feat, pr_pru
 k1,m1,lam1, k2,m2,lam2
 

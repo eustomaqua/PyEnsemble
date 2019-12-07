@@ -6,11 +6,11 @@ from __future__ import print_function
 
 import unittest
 import numpy as np
-from sklearn import tree            # DecisionTreeClassifier()
-from sklearn import naive_bayes     # GaussianNB, MultinomialNB, BernoulliNB
-from sklearn import svm             # SVC, NuSVC, LinearSVC
-from sklearn import neighbors       # KNeighborsClassifier(n_neighbors, weights='uniform' or 'distance')
-from sklearn import linear_model    # SGDClassifier(loss='hinge', penalty='l1' or 'l2')
+# from sklearn import tree            # DecisionTreeClassifier()
+# from sklearn import naive_bayes     # GaussianNB, MultinomialNB, BernoulliNB
+# from sklearn import svm             # SVC, NuSVC, LinearSVC
+# from sklearn import neighbors       # KNeighborsClassifier(n_neighbors, weights='uniform' or 'distance')
+# from sklearn import linear_model    # SGDClassifier(loss='hinge', penalty='l1' or 'l2')
 
 
 from pyensemble.classify.voting import plurality_voting

@@ -157,7 +157,8 @@ def PEP_weakly_dominate(g_s1, g_s2):
 # (2) s dominate s'  if s \succeq_{g} s'  and either g1(s)<g1(s') or g2(s)<g2(s')
 #
 def PEP_dominate(g_s1, g_s2):
-    if PEP_weakly_dominate(g_s1, g_s2) == True:
+    # if PEP_weakly_dominate(g_s1, g_s2) == True:
+    if PEP_weakly_dominate(g_s1, g_s2):
         if g_s1[0] < g_s2[0]:
             return True
         elif g_s1[1] < g_s2[1]:

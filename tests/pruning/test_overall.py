@@ -29,6 +29,7 @@ class TestOverall(unittest.TestCase):
             if name_pru == 'OO':
                 self.assertEqual(0. <= flag <= 180., True)
             self.assertEqual(all(np.unique(yo) == np.array([-1, 1])), True)
+        del L
 
 
 

@@ -78,8 +78,10 @@ def Local_Search(yt, y, nb_cls, nb_pru, epsilon):
     # while there exists p\in S\S'
     nb_count = np.sum(P) * (len(P) - np.sum(P))  # nb_cls = len(P)
     yt = np.array(yt)
-    S_within  = np.where(P ==  True)[0].tolist()
-    S_without = np.where(P == False)[0].tolist()
+    # S_within  = np.where(P ==  True)[0].tolist()
+    # S_without = np.where(P == False)[0].tolist()
+    S_within = np.where(P)[0].tolist()
+    S_without = np.where(np.logical_not(P))[0].tolist()
     while nb_count >= 0:
         flag = False  # whether exists (p, q)?
         div_b4 = LocalSearch_kappa_sum(yt[S_within].tolist(), y)
@@ -99,10 +101,12 @@ def Local_Search(yt, y, nb_cls, nb_pru, epsilon):
                     del tem_p, tem_q
                     break
             #   #   #
-            if flag == True:
+            # if flag == True:
+            if flag:
                 break
         #   #   #
-        if flag == False:
+        # if flag == False:
+        if not flag:
             break
     #   #   #
     # end while

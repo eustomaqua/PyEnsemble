@@ -43,7 +43,8 @@ def PEP_VDS(y, yt, nb_cls, s):
             Ns[i][i] = 1 - Ns[i][i]
         Ns = np.array(Ns)
         #
-        idx_Vs = np.where(QL == False)[0]
+        # idx_Vs = np.where(QL == False)[0]
+        idx_Vs = np.where(np.logical_not(QL))[0]
         Vs = Ns[idx_Vs].tolist()
         # an objective $f: 2^H \mapsto \mathbb{R}$
         obj_f = [PEP_f_Hs(y, yt, i)[0] for i in Vs]  # obj_f = [PEP_f_Hs(y, yt, s)[0] for i in Vs]
@@ -77,7 +78,8 @@ def PEP_PEP(yt, y, nb_cls, rho):
         flag1 = False
         for z1 in P:
             g_z1 = PEP_bi_objective(y, yt, z1)
-            if PEP_dominate(g_z1, g_sp) == True:
+            # if PEP_dominate(g_z1, g_sp) == True:
+            if PEP_dominate(g_z1, g_sp):
                 flag1 = True
                 del g_z1
                 break
@@ -85,11 +87,13 @@ def PEP_PEP(yt, y, nb_cls, rho):
                 del g_z1
         del z1
         #
-        if flag1 == False:
+        # if flag1 == False:
+        if not flag1:
             idx1 = []
             for i in range(len(P)):
                 g_z2 = PEP_bi_objective(y, yt, P[i])
-                if PEP_weakly_dominate(g_sp, g_z2) == True:
+                # if PEP_weakly_dominate(g_sp, g_z2) == True:
+                if PEP_weakly_dominate(g_sp, g_z2):
                     idx1.append(i)
                 del g_z2
             for i in idx1[::-1]:
@@ -103,7 +107,8 @@ def PEP_PEP(yt, y, nb_cls, rho):
                 flag3 = False
                 for z3 in P:
                     g_z3 = PEP_bi_objective(y, yt, z3)
-                    if PEP_dominate(g_z3, g_q) == True:
+                    # if PEP_dominate(g_z3, g_q) == True:
+                    if PEP_dominate(g_z3, g_q):
                         flag3 = True
                         del g_z3
                         break
@@ -111,11 +116,13 @@ def PEP_PEP(yt, y, nb_cls, rho):
                         del g_z3
                 del z3
                 #
-                if flag3 == False:
+                # if flag3 == False:
+                if not flag3:
                     idx3 = []
                     for j in range(len(P)):
                         g_z4 = PEP_bi_objective(y, yt, P[j])
-                        if PEP_weakly_dominate(g_q, g_z4) == True:
+                        # if PEP_weakly_dominate(g_q, g_z4) == True:
+                        if PEP_weakly_dominate(g_q, g_z4):
                             idx3.append(j)
                         del g_z4
                     for j in idx3[::-1]:

@@ -61,14 +61,16 @@ def J(U):
 
 def KL_find_next(yt, P):
     P = np.array(P)
-    not_in_p = np.where(P == False)[0]
+    # not_in_p = np.where(P == False)[0]
+    not_in_p = np.where(np.logical_not(P))[0]
     #
     yt = np.array(yt)
     ansJ = []
     for i in not_in_p:
         ansP = deepcopy(P)
         ansP[i] = True
-        ansU = yt[ansP == True].tolist()
+        # ansU = yt[ansP == True].tolist()
+        ansU = yt[ansP].tolist()
         ansJ.append( J(ansU) )
         del ansP, ansU
     idx = ansJ.index( np.max(ansJ) )
@@ -87,7 +89,8 @@ def KL_divergence_Pruning_modify(yt, nb_cls, nb_pru):
     while np.sum(P) < nb_pru:
         idx = KL_find_next(yt, P)
         P[idx] = True
-    yo = np.array(yt)[np.array(P) == True].tolist()
+    # yo = np.array(yt)[np.array(P) == True].tolist()
+    yo = np.array(yt)[P].tolist()
     return deepcopy(yo), deepcopy(P)
 
 

@@ -26,7 +26,8 @@ def PEP_OEP(yt, y, nb_cls):
     Hs = np.zeros(nb_cls, dtype=DTY_BOL).tolist()
     ordered_idx = []
     while np.sum(Hs) < nb_cls:
-        Hu_idx = np.where(np.array(Hs) == False)[0].tolist()
+        # Hu_idx = np.where(np.array(Hs) == False)[0].tolist()
+        Hu_idx = np.where(np.logical_not(Hs))[0].tolist()
         obj_f = []
         for h in Hu_idx:
             tem_s = deepcopy(Hs)

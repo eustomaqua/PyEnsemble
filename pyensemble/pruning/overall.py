@@ -8,10 +8,10 @@ from copy import deepcopy
 import numpy as np
 
 
-from pyensemble.pruning import RANKING_BASED
-from pyensemble.pruning import OPTIMIZATION_BASED
-from pyensemble.pruning import COMPOSABLE_CORE_SETS
-from pyensemble.pruning import AVAILABLE_NAME_PRUNE
+# from pyensemble.pruning import RANKING_BASED
+# from pyensemble.pruning import OPTIMIZATION_BASED
+# from pyensemble.pruning import COMPOSABLE_CORE_SETS
+# from pyensemble.pruning import AVAILABLE_NAME_PRUNE
 
 from pyensemble.pruning.ranking_based import Early_Stopping as ES
 from pyensemble.pruning.ranking_based import KL_divergence_Pruning as KL
@@ -80,7 +80,8 @@ def existing_contrastive_pruning_method(name_pru, yt, y, nb_cls, nb_pru, rho=Non
     #
     if name_pru != 'OO':
         flag = None
-    P = np.where(np.array(P) == True)[0].tolist()
+    # P = np.where(np.array(P) == True)[0].tolist()
+    P = np.where(P)[0].tolist()
     return deepcopy(yo), deepcopy(P), flag
 
 
