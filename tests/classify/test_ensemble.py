@@ -18,11 +18,13 @@ nb_cls = 21
 
 
 
-def test_individual():
-    prng = np.random.RandomState(FIXED_SEED)
-    wX = prng.rand(100, 4)
-    wy = prng.randint(4, size=100)
-    assert individual(name_cls, wX, wy)
+class TestIndividual(unittest.TestCase):
+    def test_individual(self):
+        prng = np.random.RandomState(FIXED_SEED)
+        wX = prng.rand(100, 4)
+        wy = prng.randint(4, size=100)
+        # assert individual(name_cls, wX, wy)
+        self.assertTrue(individual(name_cls, wX, wy))
 
 
 class TestBagging(unittest.TestCase):
