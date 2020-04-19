@@ -10,9 +10,8 @@ import gc
 import time
 
 import numpy as np
-from pathos import multiprocessing as pp
-
 gc.enable()
+
 from pyensemble.utils_const import GAP_INF, GAP_MID
 from pyensemble.utils_const import DTY_FLT, DTY_INT
 from pyensemble.utils_const import individual, check_zero
@@ -28,7 +27,7 @@ def resample(X, y, w):
     cw = np.cumsum(w).tolist()
     randseed = int(time.time() * GAP_MID % GAP_INF)
     prng = np.random.RandomState(randseed)
-    value = prng.rand(len(y)).tolist() 
+    value = prng.rand(len(y)).tolist()
     idx = []
     for k in range(len(y)):
         if value[k] <= cw[0]:

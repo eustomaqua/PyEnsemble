@@ -29,7 +29,7 @@ class TestRanking(unittest.TestCase):
 
     def test_KL_divergence_pruning(self):
         m, L, nb_cls, nb_pru = 30, 4, 7, 3
-        y, yt = generate_simulated_data(m, L, nb_cls)
+        _, yt = generate_simulated_data(m, L, nb_cls)
         _, P = KL.KL_divergence_Pruning(yt, nb_cls, nb_pru)
         self.assertEqual(sum(P), nb_pru)
 

@@ -59,7 +59,7 @@ def BaggingSelectTraining(X_trn, y_trn):
 
 def BaggingEnsembleAlgorithm(X_trn, y_trn, name_cls, nb_cls):
     clfs = []  # initial
-    for k in range(nb_cls):
+    for _ in range(nb_cls):
         wX, wy = BaggingSelectTraining(X_trn, y_trn)
         if len(np.unique(wy)) == 1:
             wX, wy = BaggingSelectTraining(X_trn, y_trn)

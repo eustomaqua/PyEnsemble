@@ -90,7 +90,7 @@ def PEP_PEP(yt, y, nb_cls, rho):
         # if flag1 == False:
         if not flag1:
             idx1 = []
-            for i in range(len(P)):
+            for _ in range(len(P)):
                 g_z2 = PEP_bi_objective(y, yt, P[i])
                 # if PEP_weakly_dominate(g_sp, g_z2) == True:
                 if PEP_weakly_dominate(g_sp, g_z2):
@@ -119,7 +119,7 @@ def PEP_PEP(yt, y, nb_cls, rho):
                 # if flag3 == False:
                 if not flag3:
                     idx3 = []
-                    for j in range(len(P)):
+                    for _ in range(len(P)):
                         g_z4 = PEP_bi_objective(y, yt, P[j])
                         # if PEP_weakly_dominate(g_q, g_z4) == True:
                         if PEP_weakly_dominate(g_q, g_z4):

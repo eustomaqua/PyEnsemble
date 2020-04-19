@@ -19,7 +19,7 @@ class TestImport(unittest.TestCase):
             self.assertTrue(pyens.diversity)
             self.assertTrue(pyens.pruning)
 
-        except Exception as e:
+        except Exception: # as e:
             # raise e
             print("Exception: import pyensemble")
         else:
@@ -59,7 +59,7 @@ class TestImport(unittest.TestCase):
             self.assertTrue(ensem_cls.BaggingEnsembleAlgorithm)
             self.assertTrue(ensem_cls.AdaBoostEnsembleAlgorithm)
 
-        except Exception as e:
+        except Exception: # as e:
             # raise e
             print("Exception: pyensemble.classify: ensemble")
 
@@ -80,7 +80,7 @@ class TestImport(unittest.TestCase):
             self.assertTrue(ensem_diver.overall.calculate_item_in_diversity)
             self.assertTrue(ensem_diver.utils_diver)
 
-        except Exception as e:
+        except Exception: # as e:
             # raise e
             print("Exception: pyensemble.diversity")
 
@@ -124,7 +124,7 @@ class TestImport(unittest.TestCase):
             self.assertTrue(pru_comp.GMA)
             self.assertTrue(pru_comp.LCS)
 
-        except Exception as e:
-            # raise  
+        except Exception: # as e:
+            # raise
             print("Exception: pyensemble.pruning")
 

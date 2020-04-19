@@ -45,6 +45,7 @@ class TestBagging(unittest.TestCase):
         coef, clfs = BaggingEnsembleAlgorithm(
             X_trn, y_trn, name_cls, nb_cls)
         self.assertNotEqual(id(clfs[0]), id(clfs[1]))
+        self.assertEqual(coef[0], coef[1])
 
 
 class TestAdaBoost(unittest.TestCase):
