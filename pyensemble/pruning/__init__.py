@@ -68,18 +68,18 @@ from .ranking_based.Kappa_Pruning import Kappa_Pruning
 from .ranking_based.KL_divergence_Pruning import KL_divergence_Pruning
 from .ranking_based.Reduce_Error_Pruning import Reduce_Error_Pruning
 from .ranking_based.Orientation_Ordering_Pruning import Orientation_Ordering_Pruning
-from .ranking_based.OEP_inPEP import PEP_OEP as OEP
+from .ranking_based.OEP_inPEP import PEP_OEP as OEP_Pruning
 __all__.extend(['Early_Stopping',
                 'Kappa_Pruning',
                 'KL_divergence_Pruning',
                 'Reduce_Error_Pruning',
                 'Orientation_Ordering_Pruning',
-                'OEP'])
+                'OEP_Pruning'])
 
 from .optimization_based.DREP import DREP_Pruning
-from .optimization_based.SEP_inPEP import PEP_SEP as SEP
-from .optimization_based.PEP_inPEP import PEP_PEP as PEP
-__all__.extend(['DREP_Pruning', 'SEP', 'PEP'])
+from .optimization_based.SEP_inPEP import PEP_SEP as SEP_Pruning
+from .optimization_based.PEP_inPEP import PEP_PEP as PEP_Pruning
+__all__.extend(['DREP_Pruning', 'SEP_Pruning', 'PEP_Pruning'])
 
 from .composable.GMM_Algorithm import GMM_Algorithm
 from .composable.Local_Search_Alg import Local_Search

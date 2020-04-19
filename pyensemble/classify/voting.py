@@ -35,7 +35,7 @@ def individual(name_cls, wX, wy):
 NAME_INDIVIDUALS = {
     'DT'  : tree.DecisionTreeClassifier(),
     'NB'  : naive_bayes.GaussianNB(),
-    'SVM' : svm.SVC(),
+    'SVM' : svm.SVC(gamma='scale'),
     'LSVM': svm.LinearSVC(),
     'KNNu': neighbors.KNeighborsClassifier(weights='uniform'),
     'KNNd': neighbors.KNeighborsClassifier(weights='distance'),
@@ -88,7 +88,7 @@ def weighted_voting(y, yt, coef):
     vY = np.unique(np.concatenate([[y], yt]))
     dY = len(vY)
     y = np.array(y);    yt = np.array(yt)
-    coef = np.array(np.mat(coef).T)
+    coef = np.transpose([coef])  ## coef = np.array(np.mat(coef).T)
     weig = [np.sum(coef * (yt == vY[i]), axis=0).tolist() for i in range(dY)]
     loca = np.array(weig).argmax(axis=0)
     fens = [vY[i] for i in loca]

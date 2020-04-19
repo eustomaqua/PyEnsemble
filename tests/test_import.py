@@ -99,6 +99,10 @@ def test_pruning():
         assert ensem_prune.GMM_Algorithm
         assert ensem_prune.Local_Search
 
+        assert ensem_prune.OEP_Pruning
+        assert ensem_prune.SEP_Pruning
+        assert ensem_prune.PEP_Pruning
+
         import pyensemble.pruning.ranking_based as pru_rank
         assert pru_rank.ES
         assert pru_rank.KP

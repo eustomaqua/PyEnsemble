@@ -44,7 +44,7 @@ def PEP_Hs_x(y, yt, s):
     vY = np.unique(np.vstack((y, yt)))
     dY = len(vY)
     yt = np.array(yt)
-    s = np.array(np.mat(s).T)
+    s = np.transpose([s])  # s = np.array(np.mat(s).T)
     #
     vote = [np.sum(s*(yt==i), axis=0).tolist() for i in vY]
     loca = np.array(vote).argmax(axis=0)
