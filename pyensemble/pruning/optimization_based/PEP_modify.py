@@ -48,7 +48,7 @@ def PEP_PEP_modify(yt, y, nb_cls, rho):
                 break
         if not flag1:
             idx1 = []
-            for _ in range(len(P)):
+            for i in range(len(P)):
                 g_z1 = PEP_bi_objective(y, yt, P[i])
                 if PEP_weakly_dominate(g_sp, g_z1):
                     idx1.append(i)
@@ -68,7 +68,7 @@ def PEP_PEP_modify(yt, y, nb_cls, rho):
                         break
                 if not flag3:
                     idx3 = []
-                    for _ in range(len(P)):
+                    for j in range(len(P)):
                         g_z3 = PEP_bi_objective(y, yt, P[j])
                         if PEP_weakly_dominate(g_q, g_z3):
                             idx3.append(j)
