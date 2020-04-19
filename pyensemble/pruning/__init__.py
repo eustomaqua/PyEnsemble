@@ -45,10 +45,43 @@ OPTIMIZATION_BASED = [
 
 
 COMPOSABLE_CORE_SETS = [
-    'GMM',   # GMM_Algorithm
+    'GMA',   # GMM_Algorithm
     'LCS',   # Local_Search
 ]  # DIVERSITY MAXIMIZATION
 # modified by me to make them suitable for ensemble pruning problems
 
 
 AVAILABLE_NAME_PRUNE = RANKING_BASED + OPTIMIZATION_BASED
+
+
+
+__all__ = ['RANKING_BASED', 'CLUSTERING_BASED', 'OPTIMIZATION_BASED',
+           'COMPOSABLE_CORE_SETS', 'AVAILABLE_NAME_PRUNE']
+from . import ranking_based as ranking
+from . import optimization_based as optimizing
+from . import composable
+# __all__.extend(['ranking_based', 'optimization_based', 'composable'])
+__all__.extend(['ranking', 'optimizing', 'composable'])
+
+from .ranking_based.Early_Stopping import Early_Stopping
+from .ranking_based.Kappa_Pruning import Kappa_Pruning
+from .ranking_based.KL_divergence_Pruning import KL_divergence_Pruning
+from .ranking_based.Reduce_Error_Pruning import Reduce_Error_Pruning
+from .ranking_based.Orientation_Ordering_Pruning import Orientation_Ordering_Pruning
+from .ranking_based.OEP_inPEP import PEP_OEP as OEP
+__all__.extend(['Early_Stopping',
+                'Kappa_Pruning',
+                'KL_divergence_Pruning',
+                'Reduce_Error_Pruning',
+                'Orientation_Ordering_Pruning',
+                'OEP'])
+
+from .optimization_based.DREP import DREP_Pruning
+from .optimization_based.SEP_inPEP import PEP_SEP as SEP
+from .optimization_based.PEP_inPEP import PEP_PEP as PEP
+__all__.extend(['DREP_Pruning', 'SEP', 'PEP'])
+
+from .composable.GMM_Algorithm import GMM_Algorithm
+from .composable.Local_Search_Alg import Local_Search
+__all__.extend(['GMM_Algorithm', 'Local_Search'])
+

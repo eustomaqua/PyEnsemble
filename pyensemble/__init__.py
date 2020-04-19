@@ -19,3 +19,17 @@ import gc
 
 gc.enable()
 
+
+__all__ = []
+
+from . import utils_const
+__all__.append('utils_const')
+
+from . import classify
+from . import datasets
+from . import diversity
+from . import pruning
+__all__.extend(['classify', 'datasets', 'diversity', 'pruning'])
+
+
+

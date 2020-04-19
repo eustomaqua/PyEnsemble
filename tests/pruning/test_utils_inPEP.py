@@ -47,7 +47,7 @@ class TestUtilsInPEP(unittest.TestCase):
         m, nb_cls = 100, 7
         s = np.random.rand(nb_cls)
         sp = PEP_flipping_uniformly(s)
-        ans = np.array(sp) != np.array(s)
+        ans = np.not_equal(sp, sp)
         ans = np.mean(ans) <= (1. / nb_cls)
         self.assertEqual(ans, True)
         #

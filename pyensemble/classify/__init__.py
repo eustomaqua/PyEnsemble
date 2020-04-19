@@ -15,4 +15,23 @@ from __future__ import print_function
 # weights (in resample):    list, [nb_y/X]
 #
 
-AVAILABLE_ABBR_CLS = ['DT', 'NB', 'SVM', 'LSVM', 'KNNu', 'KNNd', 'LM1', 'LM2']
+AVAILABLE_ABBR_CLS = ['DT', 'NB', 'SVM', 'LSVM',
+                      'KNNu', 'KNNd', 'LM1', 'LM2']
+
+
+__all__ = ['AVAILABLE_ABBR_CLS']
+
+from . import voting
+__all__.extend(['voting'])
+
+from .voting import majority_voting
+from .voting import plurality_voting
+from .voting import weighted_voting
+__all__.extend(['majority_voting',
+                'plurality_voting',
+                'weighted_voting'])
+
+from .bagging import BaggingEnsembleAlgorithm
+from .adaboost import AdaBoostEnsembleAlgorithm
+__all__.extend(['BaggingEnsembleAlgorithm',
+                'AdaBoostEnsembleAlgorithm'])

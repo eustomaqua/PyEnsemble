@@ -39,3 +39,15 @@ NONPAIRWISE = [
 
 
 AVAILABLE_NAME_DIVER = PAIRWISE + NONPAIRWISE
+
+
+
+__all__ = ['PAIRWISE', 'NONPAIRWISE',
+           'AVAILABLE_NAME_DIVER']
+from . import pairwise
+from . import nonpairwise
+from . import overall
+from . import utils_diver
+__all__.extend(['pairwise', 'nonpairwise',
+                'overall', 'utils_diver'])
+

@@ -28,3 +28,9 @@ from __future__ import print_function
 #     using Kappa statistic: K, theta1, theta2 = KappaMulti(ha, hb, y)
 #         K = 0, different;   K = 1, completely the same
 
+
+
+from . import GMM_Algorithm as GMA
+from . import Local_Search_Alg as LCS
+__all__ = ['GMA', 'LCS']
+
