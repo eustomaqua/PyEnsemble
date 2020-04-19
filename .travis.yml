@@ -18,7 +18,7 @@ script:
   - if ! [[ -z $CODACY_PROJECT_TOKEN ]]; then
       python-codacy-coverage -r coverage.xml;
     fi
-  - pip install python-coveralls && coveralls
+  # - pip install python-coveralls && coveralls
   - pip install pytest-cover
 after_success:
   - codecov
