@@ -10,8 +10,8 @@ https://pyfairness.readthedocs.io/en/latest/
 
 ![CircleCI](https://img.shields.io/circleci/build/github/eustomaqua/PyEnsemble/master)
 [![Documentation Status](https://readthedocs.org/projects/pyensemble/badge/?version=latest)](https://pyensemble.readthedocs.io/en/latest/?badge=latest)
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/bf14ce14d2df4412a91e80d94fee6931)](https://app.codacy.com/gh/eustomaqua/PyFairness/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/bf14ce14d2df4412a91e80d94fee6931)](https://app.codacy.com/gh/eustomaqua/PyFairness/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/2337de0ee40847ecbd99aac71d2561e4)](https://app.codacy.com/gh/eustomaqua/PyEnsemble/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2337de0ee40847ecbd99aac71d2561e4)](https://app.codacy.com/gh/eustomaqua/PyEnsemble/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 
 <!--

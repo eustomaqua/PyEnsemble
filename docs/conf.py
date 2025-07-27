@@ -14,7 +14,7 @@
 project = 'PyFairness'
 copyright = '2025, eustomaqua'
 author = 'eustomaqua'
-release = '0.1.0'
+release = '0.2.1'
 
 
 # -- General configuration ---------------------------------------------------

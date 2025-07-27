@@ -32,19 +32,19 @@ We may test the code on different environments, and in that case, please choose 
   $ conda remove -n ensem --all
 
 
-If you would like to install `PyFairness <https://github.com/eustomaqua/PyFairness>`_, please do the following.
+If you would like to install `PyEnsemble <https://github.com/eustomaqua/PyEnsemble>`_, please do the following.
 
 .. code-block:: console
   
   $ # Two ways to install (& uninstall) PyFairness
-  $ git clone git@github.com:eustomaqua/PyFairness.git
+  $ git clone git@github.com:eustomaqua/PyEnsemble.git
   $
-  $ pip install -r PyFairness/reqs_py311.txt
-  $ pip install -e ./PyFairness
+  $ pip install -r PyEnsemble/reqs_py311.txt
+  $ pip install -e ./PyEnsemble
   $ # pip uninstall pyfair
   $
-  $ mv ./PyFairness/pyfair ./     # cp -r <folder> ./
-  $ yes | rm -r PyFairness
+  $ mv ./PyEnsemble/pyfair ./     # cp -r <folder> ./
+  $ yes | rm -r PyEnsemble
   $ # rm -r pyfair
 
 
