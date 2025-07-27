@@ -1,10 +1,24 @@
-# PyEnsemble
+# PyFairness
 
-[![Build Status](https://travis-ci.org/eustomaqua/PyEnsemble.svg?branch=master)](https://travis-ci.org/eustomaqua/PyEnsemble) 
-[![Coverage Status](https://coveralls.io/repos/github/eustomaqua/PyEnsemble/badge.svg?branch=master)](https://coveralls.io/github/eustomaqua/PyEnsemble?branch=master) 
-[![codecov](https://codecov.io/gh/eustomaqua/PyEnsemble/branch/master/graph/badge.svg)](https://codecov.io/gh/eustomaqua/PyEnsemble) 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2337de0ee40847ecbd99aac71d2561e4)](https://www.codacy.com/manual/eustomaqua/PyEnsemble?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eustomaqua/PyEnsemble&amp;utm_campaign=Badge_Grade) 
+<!--
+[![Coverage Status](https://coveralls.io/repos/github/eustomaqua/PyFairness/badge.svg?branch=master)](https://coveralls.io/github/eustomaqua/PyFairness?branch=master)
+[![codecov](https://codecov.io/gh/eustomaqua/PyFairness/graph/badge.svg?token=57EHJOP0BL)](https://codecov.io/gh/eustomaqua/PyFairness)
 
-This is a test library for **Ensemble Learning** methods, involving **Diversity** and **Ensemble Pruning** methods as well. 
+https://pyfairness.readthedocs.io/en/latest/
+-->
 
-This package could work well with *Python 2.7, Python 3.5,* and *Python 3.6* currently. 
+
+![CircleCI](https://img.shields.io/circleci/build/github/eustomaqua/PyEnsemble/master)
+[![Documentation Status](https://readthedocs.org/projects/pyensemble/badge/?version=latest)](https://pyensemble.readthedocs.io/en/latest/?badge=latest)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/2337de0ee40847ecbd99aac71d2561e4)](https://app.codacy.com/gh/eustomaqua/PyEnsemble/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2337de0ee40847ecbd99aac71d2561e4)](https://app.codacy.com/gh/eustomaqua/PyEnsemble/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
+
+<!--
+![CircleCI](https://img.shields.io/circleci/build/github/eustomaqua/PyFairness/master)
+[![Documentation Status](https://readthedocs.org/projects/pyfairness/badge/?version=latest)](https://pyfairness.readthedocs.io/en/latest/?badge=latest)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/bf14ce14d2df4412a91e80d94fee6931)](https://app.codacy.com/gh/eustomaqua/PyFairness/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/bf14ce14d2df4412a91e80d94fee6931)](https://app.codacy.com/gh/eustomaqua/PyFairness/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+-->
+
+This is an open-source library for **Fairness** measures as well as **Ensemble Learning** methods, Diversity measures, and Ensemble Pruning methods.

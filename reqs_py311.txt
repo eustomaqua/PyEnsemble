@@ -1,11 +1,11 @@
-numpy==1.24.4
-numba==0.58.1
+numpy==2.2.6
+numba==0.61.2
 pathos==0.3.4
 pympler==1.1
 scikit-learn==1.5.0
-pandas==2.0.3
-pytest==8.3.5
-matplotlib==3.7.5
+pandas==2.3.1
+pytest==8.4.1
+matplotlib==3.10.3
 seaborn==0.13.2
 openpyxl==3.1.5
 lightgbm==4.6.0
