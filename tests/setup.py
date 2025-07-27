@@ -37,7 +37,7 @@ setup(
     # There are some restrictions on what makes a valid project name
     # specification here:
     # https://packaging.python.org/specifications/core-metadata/#name
-    name='pyfair',  # Required
+    name='pyensemble',  # Required
 
     # Versions should comply with PEP 440:
     # https://www.python.org/dev/peps/pep-0440/
@@ -50,7 +50,7 @@ setup(
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#summary
-    description='A sample Python project for Ensemble Learning and Fairness in Machine Learning',  # Optional
+    description='A sample Python project for Ensemble Learning',  # Optional
 
     # This is an optional longer description of your project that represents
     # the body of text which users will see when they visit PyPI.
@@ -78,7 +78,7 @@ setup(
     #
     # This field corresponds to the "Home-Page" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#home-page-optional
-    url='https://github.com/eustomaqua/PyFairness',  # Optional
+    url='https://github.com/eustomaqua/PyEnsemble',  # Optional
 
     # This should be your name or the name of the organization which owns the
     # project.
@@ -109,11 +109,9 @@ setup(
         # that you indicate whether you support Python 2, Python 3 or both.
         # These classifiers are *not* checked by 'pip install'. See instead
         # 'python_requires' below.
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.11',
-        # 'Programming Language :: Python :: 2.7',
-        # 'Programming Language :: Python :: 3.5',
-        # 'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
 
         # OS
         "Operating System :: OS Independent",
@@ -123,7 +121,7 @@ setup(
     # project page. What does your project relate to?
     #
     # Note that this is a string of words separated by whitespace, not a list.
-    keywords='Fairness EnsembleLearning Diversity EnsemblePruning',  # Optional
+    keywords='EnsembleLearning Diversity EnsemblePruning',  # Optional
 
     # You can just specify package directories manually here if your project is
     # simple. Or you can use find_packages().
@@ -141,8 +139,7 @@ setup(
     # and refuse to install the project if the version does not match. If you
     # do not support Python 2, you can simplify this to `>=3.5' or similar, see
     # https://packaging.python.org/guides/distributing-packages-using-setuptools/#python-requires
-    python_requires='>=3.6, !=3.7.*, <4',
-    # python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4',
+    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4',
 
     # This field lists other packages that your project depends on to run.
     # Any package you put here will be installed by pip when your project is
@@ -156,8 +153,6 @@ setup(
         'scipy',
         'pathos',
         'pympler',
-        'numba',
-        'pandas',
     ],  # Optional
 
     # List additional groups of dependencies here (e.g., development
@@ -172,7 +167,7 @@ setup(
         # 'dev': ['check-manifest'],
         # 'test': ['coverage'],
         'tests': [
-            'pytest>=8.3.5',
+            'pytest>=4.4.0',
             'flake8',
             'pytest-xdist',
             'pytest-cov',
@@ -193,7 +188,7 @@ setup(
     # http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files
     #
     # In this case, 'data_file' will be installed into '<sys.prefix>/my_data'
-    data_files=[('my_data', ['pyfair/data/'])],  # Optional
+    data_files=[('my_data', ['data/'])],  # Optional
 
     # To provide executable scripts, use entry points in preference to the
     # "scripts" keyword. Entry points provide cross-platform support and allow
@@ -218,9 +213,9 @@ setup(
     # maintainers, and where to support the project financially. The key is
     # what's used to render the link text on PyPI.
     project_urls={  # Optional
-        'Bug Reports': 'https://github.com/eustomaqua/PyFairness/issues',
+        'Bug Reports': 'https://github.com/eustomaqua/PyEnsemble/issues',
         # 'Funding': 'https://donate.pypi.org',
         # 'Say Thanks!': 'http://saythanks.io/to/example',
-        'Source': 'https://github.com/eustomaqua/PyFairness/',
+        'Source': 'https://github.com/eustomaqua/PyEnsemble/',
     },
 )

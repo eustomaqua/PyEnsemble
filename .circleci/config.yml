@@ -1,0 +1,124 @@
+# Python CircleCI 2.1 configuration file
+# Check https://circleci.com/docs/2.1/language-python/ for more details
+#
+# https://coveralls.io/github/eustomaqua/PyFairness
+# https://circleci.com/developer/orbs/orb/coveralls/coveralls
+# https://docs.codacy.com/coverage-reporter/#generating-coverage
+#
+version: 2.1
+
+# Aliases to reuse
+_defaults: &defaults
+  docker:
+    # CircleCI maintains a library of pre-built images
+    # documented at https://circleci.com/developer/images/image/cimg/python
+    - image: cimg/python:3.11.8
+    # - image: cimg/python:3.12
+  working_directory: ~/project
+
+
+jobs:
+  build-and-test:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - run:
+          name: Run tests
+          command: |
+            pip install --upgrade setuptools pip
+            pip install -r requirements.txt
+            pip install carbontracker pytest
+            pip install coverage coveralls pytest-xdist
+            coverage run -m pytest --ignore-glob="*/excl_test_*,*/*excl.py,*/pkgs*"
+            coverage report
+            coverage html
+            # rm *.png && rm *.csv && rm *.log
+            coverage xml
+            export CODACY_PROJECT_TOKEN=c3b63ca4c921490eb82dfd6f7afa2b98
+            bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
+            # bash <(curl -Ls https://coverage.codacy.com/get.sh)
+            # python -m pytest fairml/facils/excl_test*
+            # rm chart*.pdf && rm cheers*.pdf && rm fairgbm*.pdf
+            # export CODACY_PROJECT_TOKEN=e5364f1287c94650b2575c849d47c40a
+            # export CODECOV_TOKEN=c7609124-b53c-4019-a893-cec9f98cfe97
+            # export COVERALLS_REPO_TOKEN=vVh9U1eIjWuYcPfvpPaNif7kL8rJA6iRZ
+
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
+workflows:
+  version: 2
+  default:
+    jobs:
+      - build-and-test
+
+# orbs:
+#   coveralls: coveralls/coveralls@2.2.5
+# orbs:
+#   codecov: codecov/codecov@5
+# workflows:
+#   upload-to-codecov:
+#     jobs:
+#       - checkout 
+#       - codecov/upload
+
+# - name: Upload coverage reports to Codecov
+#     uses: codecov/codecov-action@v5
+#     with:
+#         token: ${{ secrets.CODECOV_TOKEN }}
+# - name: Upload coverage reports to Coveralls
+#     uses: coveralls/coveralls@2.2.5
+#     with:
+#         token: ${{ secrets.COVERALLS_REPO_TOKEN }}
+
+
+
+
+# # Use the latest 2.1 version of CircleCI pipeline process engine.
+# # See: https://circleci.com/docs/configuration-reference
+#
+# # For a detailed guide to building and testing with Python, read the docs:
+# # https://circleci.com/docs/language-python/ for more details
+# version: 2.1
+#
+# # Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
+# # See: https://circleci.com/docs/orb-intro/
+# orbs:
+#   # See the Python orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
+#   python: circleci/python@2.1.1
+#
+# # Define a job to be invoked later in a workflow.
+# # See: https://circleci.com/docs/jobs-steps/#jobs-overview & https://circleci.com/docs/configuration-reference/#jobs
+# jobs:
+#   build-and-test:
+#     # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
+#     # See: https://circleci.com/docs/executor-intro/ & https://circleci.com/docs/configuration-reference/#executor-job
+#     docker:
+#       # Specify the version you desire here
+#       # See:https://circleci.com/developer/images/image/cimg/python
+#       - image: cimg/python:3.12
+#
+#     # Add steps to the job
+#     # See: https://circleci.com/docs/jobs-steps/#steps-overview & https://circleci.com/docs/configuration-reference/#steps
+#     steps:
+#       # Checkout the code as the first step.
+#       - checkout
+#       - python/install-packages:
+#           pkg-manager: pip
+#           # app-dir: ~/project/package-directory/  # If your requirements.txt isn't in the root directory.
+#           # pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
+#       - run:
+#           name: Run tests
+#           # This assumes pytest is installed via the install-package step above
+#           command: pytest
+#
+# # Orchestrate jobs using workflows
+# # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
+# workflows:
+#   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
+#     # Inside the workflow, you define the jobs you want to run.
+#     jobs:
+#       - build-and-test

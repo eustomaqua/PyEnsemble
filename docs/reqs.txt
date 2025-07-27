@@ -1,0 +1,14 @@
+sphinx
+sphinx-rtd-theme
+recommonmark
+sphinx_markdown_tables
+solar-theme
+sphinx-conestack-theme
+sphinx-nefertiti
+sphinx-pdj-theme
+python-docs-theme
+sphinx-readable-theme
+sphinx-wagtail-theme
+
+mkdocs
+mkdocs-material
